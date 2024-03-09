@@ -17,7 +17,7 @@ describe("Test Contact Us Form via AutomationTestStore", () => {
         cy.visit("https://automationteststore.com/");
         //cy.get('.info_links_footer > :nth-child(5) > a').click(); //this selector can be improved, if 5 was changed to a 4, this breaks the test
         //cy.xpath("//a[contains(@href, 'contact')]").click(); 
-        cy.get("a[href$='contact']555").click().then(function(buttonName) {
+        cy.get("a[href$='contact']").click().then(function(buttonName) {
             cy.log("The button name is: " + buttonName.text());
         }); //better css selector, targets 1 obj
         cy.get("@user").then((user) => {

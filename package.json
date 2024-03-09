@@ -9,10 +9,12 @@
     "triggerAllTests-chrome": "npx cypress run --browser chrome",
     "triggerAllTests-dashboard": "npx cypress run --record --key c9fcbbc8-a630-4cae-807f-0ca9f3af6f35",
     "triggerAllTests-webdriveruni": "npx cypress run --spec cypress/e2e/webdriver-uni/*",
+    "triggerAllTests-autoTestStore": "npx cypress run --spec cypress/e2e/automation-test-store/*",
     "junit-merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/results.xml",
     "delete-junit-report": "rm -rf cypress/results/junit/results.xml",
     "delete-results": "rm -rf cypress/results/* || true",
     "mochawesome-merge": "npx mochawesome-merge cypress/results/mochawesome/*.json > mochawesome.json && npx marge mochawesome.json",
+    "cypress-multi-browser": "npm run triggerAllTests-autoTestStore -- --browser electron --headed & npm run triggerAllTests-autoTestStore -- --browser edge --headed",
     "delete-mochawesome-report": "rm -rf mochawesome-report/* || true",
     "cypress-regression-pack": "npm run delete-results && npm run delete-mochawesome-report && npm run triggerAllTests-headless && npm run mochawesome-merge",
     "cypress:open": "cypress open"
